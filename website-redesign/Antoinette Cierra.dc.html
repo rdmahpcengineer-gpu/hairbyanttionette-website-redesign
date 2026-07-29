@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/classical-d67e3989-212d-4ace-889a-a7f687bdd356/styles.css">
+<script src="_ds/classical-d67e3989-212d-4ace-889a-a7f687bdd356/_ds_bundle.js"></script>
+<meta name="ext-resource-dependency" content="https://videos.pexels.com/video-files/7876273/7876273-uhd_1440_2732_25fps.mp4" data-resource-id="herovideo" />
+<meta name="ext-resource-dependency" content="uploads/pasted-1785280259095-0.png" data-resource-id="portrait" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f3f2f2; overflow-x: hidden; }
+  a { color: #7d5411; text-decoration: none; }
+  a:hover { color: #b68235; }
+  ::selection { background: #ffe3bf; }
+  /* Scoped to [data-anim="ready"], which JS sets only once GSAP is confirmed
+     running — with no JS, a failed CDN or a throttled tab, the page stays visible. */
+  [data-anim="ready"] [data-rise] { opacity: 0; }
+  @keyframes acScrollCue { 0%,100% { transform: translateY(0); opacity: .35 } 50% { transform: translateY(9px); opacity: 1 } }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);-webkit-font-smoothing:antialiased">
+
+<template id="__bundler_thumbnail" data-bg-color="#171615"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#171615"></rect><circle cx="200" cy="200" r="104" fill="none" stroke="#b68235" stroke-width="1.5"></circle><text x="200" y="228" text-anchor="middle" font-family="Georgia, serif" font-size="108" fill="#e1ad66">AC</text></svg></template>
+
+<nav class="nav" data-nav style="position:fixed;top:0;left:0;right:0;z-index:60;justify-content:space-between;gap:var(--space-6);padding:18px clamp(20px,4vw,56px);background:transparent;border-bottom:1px solid transparent;transition:background .5s ease, border-color .5s ease, color .5s ease;color:#f3f2f2">
+  <a class="nav-brand" href="#top" style="display:flex;flex-direction:column;line-height:1;color:inherit">
+    <span style="font-weight:400;font-size:20px;letter-spacing:.06em">Antoinette Cierra</span>
+    <span style="font-family:var(--font-body);font-size:8.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.62;margin-top:6px">Hair · Allen, Texas</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:clamp(14px,2vw,30px);font-family:var(--font-body);letter-spacing:.2em;text-transform:uppercase">
+    <a data-navlink href="#services" style="font-size:11px;color:inherit;opacity:.8" style-hover="opacity:1">Services</a>
+    <a data-navlink href="#portfolio" style="font-size:11px;color:inherit;opacity:.8" style-hover="opacity:1">Portfolio</a>
+    <a data-navlink href="#about" style="font-size:11px;color:inherit;opacity:.8" style-hover="opacity:1">About</a>
+    <a data-navlink href="#policies" style="font-size:11px;color:inherit;opacity:.8" style-hover="opacity:1">Policies</a>
+    <a data-navlink href="#contact" style="font-size:11px;color:inherit;opacity:.8" style-hover="opacity:1">Contact</a>
+    <a class="btn btn-primary" href="{{ bookUrl }}" data-bookbtn style="font-family:var(--font-body);font-size:11px;color:inherit;border-color:currentColor;padding:10px 20px;letter-spacing:.22em;font-variant-numeric:tabular-nums">Book · (435) 348-0415</a>
+  </div>
+</nav>
+
+<section id="top" data-hero style="position:relative;height:100svh;min-height:620px;overflow:hidden;background:#171615">
+  <div data-hero-media style="position:absolute;inset:-6% -2%;will-change:transform">
+    <img src="https://images.pexels.com/videos/7876273/pexels-photo-7876273.jpeg?w=1600" alt="Hands combing through natural hair" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:sepia(.24) saturate(.8) contrast(1.06) brightness(.82)">
+    <video data-hero-video src="{{ videoUrl }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 30%;filter:sepia(.2) saturate(.82) contrast(1.05) brightness(.8)"></video>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,22,21,.72) 0%,rgba(23,22,21,.28) 34%,rgba(23,22,21,.34) 62%,rgba(23,22,21,.88) 100%)"></div>
+  <div data-hero-copy style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(20px,4vw,56px) clamp(56px,7vh,92px)">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px">
+      <span style="width:clamp(28px,5vw,72px);height:1px;background:#e1ad66;opacity:.8"></span>
+      <span style="font-family:var(--font-body);font-size:10.5px;letter-spacing:.36em;text-transform:uppercase;color:#e1ad66">By appointment · Watters Creek</span>
+    </div>
+    <h1 style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(52px,10.5vw,168px);line-height:.9;letter-spacing:-.015em;color:#f6f4f1;text-wrap:balance">
+      <span data-hero-line style="display:block">The art of</span>
+      <span data-hero-line style="display:block;font-style:italic;padding-left:clamp(28px,7vw,140px)">finished hair</span>
+    </h1>
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--space-8);margin-top:clamp(28px,4vh,48px);border-top:1px solid rgba(243,242,242,.22);padding-top:24px">
+      <p data-hero-sub style="margin:0;max-width:46ch;font-size:15px;line-height:1.75;color:rgba(246,244,241,.8);text-wrap:pretty">Silk presses, precision cutting, colour and extensions for women who want the result to hold — long after the chair. Fifteen years of hands, one client at a time.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="{{ bookUrl }}" style="font-family:var(--font-body);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#f6f4f1;border-color:#c28d41;padding:16px 32px" style-hover="background:rgba(194,141,65,.2);border-color:#e1ad66;color:#fff3e4">Call to book</a>
+        <a class="btn btn-secondary" href="#services" style="font-family:var(--font-body);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(246,244,241,.72);border-color:rgba(243,242,242,.28);padding:16px 32px" style-hover="color:#f6f4f1;border-color:rgba(243,242,242,.6)">The menu</a>
+        <a href="tel:+14353480415" style="display:flex;align-items:center;font-family:var(--font-heading);font-size:22px;font-weight:400;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:#e1ad66;padding:0 4px" style-hover="color:#facb8d">(435) 348-0415</a>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;right:clamp(20px,4vw,56px);bottom:clamp(56px,7vh,92px);display:flex;flex-direction:column;align-items:center;gap:10px;pointer-events:none">
+    <span style="writing-mode:vertical-rl;font-family:var(--font-body);font-size:9px;letter-spacing:.36em;text-transform:uppercase;color:rgba(243,242,242,.4)">Scroll</span>
+    <span style="width:1px;height:44px;background:linear-gradient(180deg,rgba(225,173,102,.9),transparent);animation:acScrollCue 2.6s ease-in-out infinite"></span>
+  </div>
+</section>
+
+<section data-manifesto style="position:relative;background:#171615;color:#f3f2f2">
+  <div data-manifesto-pin style="height:100svh;min-height:560px;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(20px,7vw,140px)">
+    <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:#a06f24;margin-bottom:clamp(28px,5vh,56px)">I — The standard</span>
+    <p style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(28px,4.6vw,66px);line-height:1.18;letter-spacing:-.01em;max-width:19ch;text-wrap:balance">
+      <span data-mline style="display:block">Hair is not a service.</span>
+      <span data-mline style="display:block">It is a record of</span>
+      <span data-mline style="display:block;font-style:italic;color:#e1ad66">how carefully</span>
+      <span data-mline style="display:block">someone listened.</span>
+    </p>
+    <div data-mline style="display:flex;align-items:center;gap:16px;margin-top:clamp(32px,5vh,60px)">
+      <span style="width:64px;height:1px;background:rgba(243,242,242,.3)"></span>
+      <span style="font-family:var(--font-body);font-style:italic;font-size:14px;color:rgba(243,242,242,.62)">Antoinette Cierra</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding:clamp(80px,12vh,160px) clamp(20px,4vw,56px);border-bottom:1px solid var(--color-divider)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-rise style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-8);flex-wrap:wrap;margin-bottom:clamp(40px,6vh,72px)">
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(34px,5vw,66px);line-height:1;letter-spacing:-.01em">The method</h2>
+      <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--color-accent-700)">II — How the work is done</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0">
+      <div data-rise style="padding:0 clamp(20px,2.6vw,44px) 0 0;border-right:1px solid var(--color-divider)">
+        <span style="font-family:var(--font-body);font-size:11px;letter-spacing:.3em;color:var(--color-accent-700);font-variant-numeric:tabular-nums">01</span>
+        <h3 style="margin:18px 0 14px;font-family:var(--font-heading);font-weight:400;font-size:29px;line-height:1.15">Consultation first</h3>
+        <p style="margin:0;font-size:14px;line-height:1.85;text-align:justify;hyphens:auto;color:var(--color-neutral-800)">Every appointment opens with a conversation and a hands-on read of your density, porosity and history. Nothing is decided in advance. If a look will not hold on your hair, you will be told before the first section is parted.</p>
+      </div>
+      <div data-rise style="padding:0 clamp(20px,2.6vw,44px);border-right:1px solid var(--color-divider)">
+        <span style="font-family:var(--font-body);font-size:11px;letter-spacing:.3em;color:var(--color-accent-700);font-variant-numeric:tabular-nums">02</span>
+        <h3 style="margin:18px 0 14px;font-family:var(--font-heading);font-weight:400;font-size:29px;line-height:1.15">Integrity over speed</h3>
+        <p style="margin:0;font-size:14px;line-height:1.85;text-align:justify;hyphens:auto;color:var(--color-neutral-800)">Low tension, measured heat, bond-building where it earns its place. One guest is booked at a time, which is why the chair is never rushed and why the calendar closes early. The hair leaves stronger than it arrived.</p>
+      </div>
+      <div data-rise style="padding:0 0 0 clamp(20px,2.6vw,44px)">
+        <span style="font-family:var(--font-body);font-size:11px;letter-spacing:.3em;color:var(--color-accent-700);font-variant-numeric:tabular-nums">03</span>
+        <h3 style="margin:18px 0 14px;font-family:var(--font-heading);font-weight:400;font-size:29px;line-height:1.15">It lives at home</h3>
+        <p style="margin:0;font-size:14px;line-height:1.85;text-align:justify;hyphens:auto;color:var(--color-neutral-800)">You leave with a written regimen — product, wrap, wash cadence — and a standing line for questions between visits. A style that only works on the day it was done is not finished work.</p>
+      </div>
+    </div>
+    <div data-rise style="margin-top:clamp(48px,7vh,88px)">
+      <div class="plate" data-parallax-wrap style="overflow:hidden;border-radius:var(--radius-sm)">
+        <img data-parallax src="https://images.unsplash.com/photo-1633681926035-ec1ac984418a?w=2000&amp;q=80" alt="The studio at Watters Creek" style="width:100%;height:clamp(280px,54vh,560px);object-fit:cover;display:block;will-change:transform;scale:1.16">
+      </div>
+      <p style="margin:14px 0 0;font-family:var(--font-body);font-style:italic;font-size:12.5px;color:var(--color-neutral-600)">The studio — Suite 200, Watters Creek, Allen.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding:clamp(80px,12vh,160px) clamp(20px,4vw,56px);border-bottom:1px solid var(--color-divider)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-rise style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-8);flex-wrap:wrap;margin-bottom:clamp(16px,2vh,24px)">
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(34px,5vw,66px);line-height:1;letter-spacing:-.01em">Services &amp; pricing</h2>
+      <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--color-accent-700)">III — The menu</span>
+    </div>
+    <p data-rise style="margin:0 0 clamp(44px,6vh,72px);max-width:62ch;font-size:14px;line-height:1.85;color:var(--color-neutral-700)">Prices are starting points and are confirmed at consultation; density, length and prior chemical history move the number. A non-refundable deposit of $50 holds every appointment and is applied to your total.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:clamp(40px,5vw,86px)">
+
+      <div>
+        <div data-rise style="display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--color-text)">
+          <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.3em;color:var(--color-accent-700);font-variant-numeric:tabular-nums">i</span>
+          <h3 style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;letter-spacing:.01em">Silk press &amp; natural hair</h3>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Signature Silk Press</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Clarify, deep condition, blow-out and press. Movement and shine with the curl pattern intact.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$135</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Silk Press &amp; Precision Trim</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">The press above, with ends taken down cleanly once the hair is straight.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$155</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Natural Style-Out</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Twist-out, braid-out or roller set, finished and separated.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$95</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Deep Condition &amp; Scalp Ritual</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Detox, steam and a fifteen-minute massage. Booked alone or as an add-on.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$65</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Bond-Building Treatment</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Add-on for compromised or colour-treated hair.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$50</div>
+        </div>
+      </div>
+
+      <div>
+        <div data-rise style="display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--color-text)">
+          <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.3em;color:var(--color-accent-700);font-variant-numeric:tabular-nums">ii</span>
+          <h3 style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;letter-spacing:.01em">Cutting</h3>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Precision Cut &amp; Style</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Shape built to your growth pattern, cut wet, refined dry.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$110</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Curl-Specific Dry Cut</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Curl by curl, in its natural state, with a wash and diffuse to finish.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$125</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Restorative Trim</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Dusting only — length kept, ends corrected.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$55</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Fringe Reshape</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Complimentary within three weeks of a cut.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$35</div>
+        </div>
+      </div>
+
+      <div>
+        <div data-rise style="display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--color-text)">
+          <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.3em;color:var(--color-accent-700);font-variant-numeric:tabular-nums">iii</span>
+          <h3 style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;letter-spacing:.01em">Colour</h3>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Gloss &amp; Tone</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Refresh depth and shine between full colour appointments.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$75</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Root Retouch</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">New growth only, to two inches.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$130</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">All-Over Colour</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Single process, root to end, with a bond additive included.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$175</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Partial Balayage</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Hand-painted around the face and crown, glossed to finish.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$250</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Full Balayage</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Full head, gloss and style. Four to five hours.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$325</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Colour Correction</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Quoted after a paid consultation. Often staged across visits.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">from $150/hr</div>
+        </div>
+      </div>
+
+      <div>
+        <div data-rise style="display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--color-text)">
+          <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.3em;color:var(--color-accent-700);font-variant-numeric:tabular-nums">iv</span>
+          <h3 style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;letter-spacing:.01em">Extensions &amp; wigs</h3>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Traditional Sew-In</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Braid-down, install and cut. Hair not included.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$325</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Hybrid / Versatile Sew-In</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Full movement and parting, closure or leave-out.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$375</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Tape-In Installation</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Full head, blended and cut in. Move-up every six to eight weeks.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$400</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Wig Install &amp; Customization</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Bleached knots, plucked hairline, cut and styled.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$250</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Extension Move-Up</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Removal, wash, treatment and reinstall of your existing hair.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$175</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Removal &amp; Restorative Wash</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Take-down, detangle, protein and moisture. Waived when rebooking same day.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$85</div>
+        </div>
+      </div>
+
+      <div>
+        <div data-rise style="display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--color-text)">
+          <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.3em;color:var(--color-accent-700);font-variant-numeric:tabular-nums">v</span>
+          <h3 style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;letter-spacing:.01em">Bridal &amp; event</h3>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Bridal Trial</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Two hours, photographed from every angle, notes kept on file.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$150</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Bridal, Day-Of</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">In studio or on location, with touch-up kit.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$225</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Bridal Party, per guest</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Minimum of three. Schedule built around the ceremony time.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$95</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">Special Occasion Style</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Galas, portraits, milestones. Updos and pressed sets.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">$125</div>
+        </div>
+        <div data-svc style="display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:var(--space-6);padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+          <div><div style="font-family:var(--font-heading);font-size:23px;font-weight:400;line-height:1.25">On-Location Travel</div><div style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);margin-top:5px;max-width:46ch">Within the DFW metroplex; quoted beyond.</div></div>
+          <div style="font-size:17px;font-variant-numeric:tabular-nums;color:var(--color-accent-700);white-space:nowrap">from $100</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" data-gallery style="position:relative;background:#171615;color:#f3f2f2;overflow:hidden">
+  <div data-gallery-pin style="height:100svh;min-height:560px;display:flex;flex-direction:column;justify-content:center">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-8);flex-wrap:wrap;padding:0 clamp(20px,4vw,56px) clamp(24px,4vh,44px)">
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(32px,4.6vw,60px);line-height:1;letter-spacing:-.01em">Selected work</h2>
+      <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#a06f24">IV — Portfolio</span>
+    </div>
+    <div data-gallery-track style="display:flex;gap:clamp(16px,2vw,32px);padding:0 clamp(20px,4vw,56px);will-change:transform">
+      <figure style="margin:0;flex:0 0 auto;width:clamp(230px,26vw,380px)">
+        <div class="plate" style="border-color:#242220;overflow:hidden"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=900&amp;q=80" alt="Natural texture, defined and picked out" style="width:100%;height:clamp(300px,46vh,480px);object-fit:cover;display:block"></div>
+        <figcaption style="margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,242,242,.5)">Natural · Style-out</figcaption>
+      </figure>
+      <figure style="margin:0;flex:0 0 auto;width:clamp(230px,26vw,380px)">
+        <div class="plate" style="border-color:#242220;overflow:hidden"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&amp;q=80" alt="Length and body through the mid-lengths" style="width:100%;height:clamp(300px,46vh,480px);object-fit:cover;display:block"></div>
+        <figcaption style="margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,242,242,.5)">Extensions · Hybrid sew-in</figcaption>
+      </figure>
+      <figure style="margin:0;flex:0 0 auto;width:clamp(230px,26vw,380px)">
+        <div class="plate" style="border-color:#242220;overflow:hidden"><img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=900&amp;q=80" alt="Deep copper gloss with a blunt finish" style="width:100%;height:clamp(300px,46vh,480px);object-fit:cover;display:block"></div>
+        <figcaption style="margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,242,242,.5)">Colour · Gloss &amp; tone</figcaption>
+      </figure>
+      <figure style="margin:0;flex:0 0 auto;width:clamp(230px,26vw,380px)">
+        <div class="plate" style="border-color:#242220;overflow:hidden"><img src="https://images.unsplash.com/photo-1554519934-e32b1629d9ee?w=900&amp;q=80" alt="Silk press, cut blunt at the perimeter" style="width:100%;height:clamp(300px,46vh,480px);object-fit:cover;display:block"></div>
+        <figcaption style="margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,242,242,.5)">Silk press · Precision trim</figcaption>
+      </figure>
+      <figure style="margin:0;flex:0 0 auto;width:clamp(230px,26vw,380px)">
+        <div class="plate" style="border-color:#242220;overflow:hidden"><img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=900&amp;q=80" alt="Sculpted evening set in profile" style="width:100%;height:clamp(300px,46vh,480px);object-fit:cover;display:block"></div>
+        <figcaption style="margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,242,242,.5)">Event · Sculpted set</figcaption>
+      </figure>
+      <figure style="margin:0;flex:0 0 auto;width:clamp(230px,26vw,380px)">
+        <div class="plate" style="border-color:#242220;overflow:hidden"><img src="https://images.unsplash.com/photo-1523264939339-c89f9dadde2e?w=900&amp;q=80" alt="Soft waves with painted dimension" style="width:100%;height:clamp(300px,46vh,480px);object-fit:cover;display:block"></div>
+        <figcaption style="margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,242,242,.5)">Colour · Partial balayage</figcaption>
+      </figure>
+      <figure style="margin:0;flex:0 0 auto;width:clamp(230px,26vw,380px)">
+        <div class="plate" style="border-color:#242220;overflow:hidden"><img src="https://images.unsplash.com/photo-1470259078422-826894b933aa?w=900&amp;q=80" alt="Hair caught mid-movement under studio light" style="width:100%;height:clamp(300px,46vh,480px);object-fit:cover;display:block"></div>
+        <figcaption style="margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,242,242,.5)">Editorial · Campaign</figcaption>
+      </figure>
+      <figure style="margin:0;flex:0 0 auto;width:clamp(230px,26vw,380px)">
+        <div class="plate" style="border-color:#242220;overflow:hidden"><img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=900&amp;q=80" alt="Cool pastel tone over lifted lengths" style="width:100%;height:clamp(300px,46vh,480px);object-fit:cover;display:block"></div>
+        <figcaption style="margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,242,242,.5)">Colour · Full balayage</figcaption>
+      </figure>
+      <figure style="margin:0;flex:0 0 auto;width:clamp(230px,26vw,380px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:18px;padding-left:clamp(12px,2vw,28px);border-left:1px solid rgba(243,242,242,.16)">
+        <p style="margin:0;font-family:var(--font-heading);font-weight:300;font-style:italic;font-size:clamp(24px,2.4vw,34px);line-height:1.25;color:#f6f4f1">More of the work lives on Instagram, posted the day it leaves the chair.</p>
+        <a href="{{ igUrl }}" target="_blank" rel="noopener" style="font-family:var(--font-body);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#e1ad66;border-bottom:1px solid rgba(225,173,102,.5);padding-bottom:5px" style-hover="color:#facb8d;border-color:#facb8d">{{ igHandle }}</a>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding:clamp(80px,12vh,160px) clamp(20px,4vw,56px);border-bottom:1px solid var(--color-divider)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-rise style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-8);flex-wrap:wrap;margin-bottom:clamp(40px,6vh,72px)">
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(34px,5vw,66px);line-height:1;letter-spacing:-.01em">Meet Antoinette</h2>
+      <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--color-accent-700)">V — The stylist</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,80px);align-items:start">
+      <div data-rise data-parallax-wrap style="overflow:hidden">
+        <div class="plate" style="overflow:hidden"><img data-parallax src="uploads/pasted-1785280259095-0.png" alt="Antoinette Cierra in the studio" style="width:100%;height:clamp(360px,62vh,660px);object-fit:cover;object-position:50% 30%;display:block;will-change:transform;scale:1.14"></div>
+      </div>
+      <div>
+        <p data-rise style="margin:0 0 var(--space-6);font-family:var(--font-heading);font-weight:300;font-size:clamp(24px,2.6vw,38px);line-height:1.3;letter-spacing:-.005em;text-wrap:pretty">Licensed in Texas, trained on textured hair, and stubborn about the things that do not photograph — elasticity, edges, the way a part sits three weeks later.</p>
+        <div data-rise style="columns:2;column-gap:clamp(24px,3vw,44px);column-rule:1px solid var(--color-divider);font-size:14px;line-height:1.85;text-align:justify;hyphens:auto;color:var(--color-neutral-800)">
+          <p style="margin:0 0 1em">Antoinette Cierra keeps a single-chair studio inside Watters Creek in Allen — a deliberate choice. One guest at a time means the consultation is unhurried, the timing is honest, and nobody is left processing while another head is started.</p>
+          <p style="margin:0 0 1em">Her practice is built on textured hair: silk presses that swing without heat damage, sew-ins set at a tension the scalp can live with, and colour formulated around what the hair has already survived. Precision cutting and bridal work round out the book.</p>
+          <p style="margin:0">Clients come from Allen, Plano, McKinney and Frisco, and most have been coming for years. New guests begin with a consultation — in person or by video — before anything is booked.</p>
+        </div>
+        <div data-rise style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:clamp(32px,4vh,52px);padding-top:var(--space-6);border-top:1px solid var(--color-text)">
+          <div><div style="font-family:var(--font-heading);font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">15</div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:9px">Years behind the chair</div></div>
+          <div><div style="font-family:var(--font-heading);font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">01</div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:9px">Guest at a time</div></div>
+          <div><div style="font-family:var(--font-heading);font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">TX</div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:9px">TDLR licensed</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:clamp(80px,12vh,160px) clamp(20px,4vw,56px);border-bottom:1px solid var(--color-divider)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-rise style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-8);flex-wrap:wrap;margin-bottom:clamp(40px,6vh,72px)">
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(34px,5vw,66px);line-height:1;letter-spacing:-.01em">In their words</h2>
+      <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--color-accent-700)">VI — Testimonials</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0">
+      <blockquote data-rise style="margin:0;padding:0 clamp(20px,2.6vw,44px) 0 0;border-right:1px solid var(--color-divider)">
+        <p style="margin:0;font-family:var(--font-heading);font-weight:300;font-style:italic;font-size:clamp(21px,2.1vw,28px);line-height:1.4">“Three weeks later it still moved like it did the day I left. I have never had a press hold like that.”</p>
+        <footer style="margin-top:22px;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--color-neutral-600)">Danielle R. · Plano</footer>
+      </blockquote>
+      <blockquote data-rise style="margin:0;padding:0 clamp(20px,2.6vw,44px);border-right:1px solid var(--color-divider)">
+        <p style="margin:0;font-family:var(--font-heading);font-weight:300;font-style:italic;font-size:clamp(21px,2.1vw,28px);line-height:1.4">“She told me no on the colour I asked for and gave me something better. That is the whole reason I stay.”</p>
+        <footer style="margin-top:22px;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--color-neutral-600)">Simone A. · Allen</footer>
+      </blockquote>
+      <blockquote data-rise style="margin:0;padding:0 0 0 clamp(20px,2.6vw,44px)">
+        <p style="margin:0;font-family:var(--font-heading);font-weight:300;font-style:italic;font-size:clamp(21px,2.1vw,28px);line-height:1.4">“My install has never once been tight, and my edges have grown back in since I started seeing her.”</p>
+        <footer style="margin-top:22px;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--color-neutral-600)">Kenya B. · McKinney</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="policies" style="background:#171615;color:#f3f2f2;padding:clamp(80px,12vh,160px) clamp(20px,4vw,56px)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-rise style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-8);flex-wrap:wrap;margin-bottom:clamp(40px,6vh,72px)">
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(34px,5vw,66px);line-height:1;letter-spacing:-.01em">Before you book</h2>
+      <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#a06f24">VII — Policies</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 clamp(32px,5vw,80px)">
+      <div data-rise style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4) var(--space-6);align-items:baseline;padding:var(--space-6) 0;border-top:1px solid rgba(243,242,242,.18)">
+        <span style="font-size:10px;letter-spacing:.3em;color:#a06f24;font-variant-numeric:tabular-nums">01</span>
+        <div><h3 style="margin:0 0 8px;font-family:var(--font-heading);font-weight:400;font-size:23px">Deposits</h3><p style="margin:0;font-size:13.5px;line-height:1.8;color:rgba(243,242,242,.66)">A $50 non-refundable deposit secures every appointment and is credited to your service. Bridal reservations require $100.</p></div>
+      </div>
+      <div data-rise style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4) var(--space-6);align-items:baseline;padding:var(--space-6) 0;border-top:1px solid rgba(243,242,242,.18)">
+        <span style="font-size:10px;letter-spacing:.3em;color:#a06f24;font-variant-numeric:tabular-nums">02</span>
+        <div><h3 style="margin:0 0 8px;font-family:var(--font-heading);font-weight:400;font-size:23px">Cancellations</h3><p style="margin:0;font-size:13.5px;line-height:1.8;color:rgba(243,242,242,.66)">Forty-eight hours' notice to move or cancel without losing the deposit. Inside that window it is forfeited; a second occurrence requires prepayment in full.</p></div>
+      </div>
+      <div data-rise style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4) var(--space-6);align-items:baseline;padding:var(--space-6) 0;border-top:1px solid rgba(243,242,242,.18)">
+        <span style="font-size:10px;letter-spacing:.3em;color:#a06f24;font-variant-numeric:tabular-nums">03</span>
+        <div><h3 style="margin:0 0 8px;font-family:var(--font-heading);font-weight:400;font-size:23px">Arrival</h3><p style="margin:0;font-size:13.5px;line-height:1.8;color:rgba(243,242,242,.66)">A fifteen-minute grace period is held for you. Past twenty minutes the appointment is released, as only one guest is booked at a time.</p></div>
+      </div>
+      <div data-rise style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4) var(--space-6);align-items:baseline;padding:var(--space-6) 0;border-top:1px solid rgba(243,242,242,.18)">
+        <span style="font-size:10px;letter-spacing:.3em;color:#a06f24;font-variant-numeric:tabular-nums">04</span>
+        <div><h3 style="margin:0 0 8px;font-family:var(--font-heading);font-weight:400;font-size:23px">Preparation</h3><p style="margin:0;font-size:13.5px;line-height:1.8;color:rgba(243,242,242,.66)">Come with hair detangled and free of heavy product, and extensions removed unless a take-down is booked. Bring your own hair for installs, washed and ready.</p></div>
+      </div>
+      <div data-rise style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4) var(--space-6);align-items:baseline;padding:var(--space-6) 0;border-top:1px solid rgba(243,242,242,.18)">
+        <span style="font-size:10px;letter-spacing:.3em;color:#a06f24;font-variant-numeric:tabular-nums">05</span>
+        <div><h3 style="margin:0 0 8px;font-family:var(--font-heading);font-weight:400;font-size:23px">Guests</h3><p style="margin:0;font-size:13.5px;line-height:1.8;color:rgba(243,242,242,.66)">The studio seats one. Please come alone unless the guest is receiving a service; children cannot be accommodated while you are in the chair.</p></div>
+      </div>
+      <div data-rise style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4) var(--space-6);align-items:baseline;padding:var(--space-6) 0;border-top:1px solid rgba(243,242,242,.18);border-bottom:1px solid rgba(243,242,242,.18)">
+        <span style="font-size:10px;letter-spacing:.3em;color:#a06f24;font-variant-numeric:tabular-nums">06</span>
+        <div><h3 style="margin:0 0 8px;font-family:var(--font-heading);font-weight:400;font-size:23px">Adjustments</h3><p style="margin:0;font-size:13.5px;line-height:1.8;color:rgba(243,242,242,.66)">Anything that is not sitting right is corrected without charge within seven days. Services are not refunded once performed.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:clamp(64px,9vh,120px) 0 clamp(80px,12vh,140px);border-bottom:1px solid var(--color-divider)">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap;max-width:1280px;margin:0 auto clamp(28px,4vh,44px);padding:0 clamp(20px,4vw,56px)">
+    <h2 data-rise style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(28px,3.6vw,48px);line-height:1">Lately, on Instagram</h2>
+    <a data-rise href="{{ igUrl }}" target="_blank" rel="noopener" style="font-family:var(--font-body);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--color-accent-700);border-bottom:1px solid var(--color-accent-300);padding-bottom:5px" style-hover="color:var(--color-accent-600);border-color:var(--color-accent)">{{ igHandle }}</a>
+  </div>
+  <div data-ig style="display:flex;gap:2px;overflow-x:auto;padding:0 clamp(20px,4vw,56px);scrollbar-width:none">
+    <a href="{{ igUrl }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:clamp(150px,17vw,240px);display:block" style-hover="opacity:.78"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&amp;q=80" alt="Mid-service" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:sepia(.22) saturate(.82) contrast(1.05)"></a>
+    <a href="{{ igUrl }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:clamp(150px,17vw,240px);display:block" style-hover="opacity:.78"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&amp;q=80" alt="Blow-out in progress" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:sepia(.22) saturate(.82) contrast(1.05)"></a>
+    <a href="{{ igUrl }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:clamp(150px,17vw,240px);display:block" style-hover="opacity:.78"><img src="https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&amp;q=80" alt="Tools laid out" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:sepia(.22) saturate(.82) contrast(1.05)"></a>
+    <a href="{{ igUrl }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:clamp(150px,17vw,240px);display:block" style-hover="opacity:.78"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600&amp;q=80" alt="Detail" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:sepia(.22) saturate(.82) contrast(1.05)"></a>
+    <a href="{{ igUrl }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:clamp(150px,17vw,240px);display:block" style-hover="opacity:.78"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&amp;q=80" alt="Studio, morning" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:sepia(.22) saturate(.82) contrast(1.05)"></a>
+    <a href="{{ igUrl }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:clamp(150px,17vw,240px);display:block" style-hover="opacity:.78"><img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=600&amp;q=80" alt="The chair" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:sepia(.22) saturate(.82) contrast(1.05)"></a>
+  </div>
+</section>
+
+<section id="contact" style="padding:clamp(80px,12vh,160px) clamp(20px,4vw,56px)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-rise style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-8);flex-wrap:wrap;margin-bottom:clamp(40px,6vh,72px)">
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:300;font-size:clamp(34px,5vw,66px);line-height:1;letter-spacing:-.01em">Reserve a seat</h2>
+      <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--color-accent-700)">VIII — Contact</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,80px);align-items:start">
+      <div>
+        <div data-rise style="padding:var(--space-6) 0;border-top:1px solid var(--color-text)">
+          <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:12px">The studio</div>
+          <p style="margin:0;font-family:var(--font-heading);font-size:26px;font-weight:400;line-height:1.4">905 Watters Creek Boulevard<br>Suite 200<br>Allen, Texas 75013</p>
+        </div>
+        <div data-rise style="padding:var(--space-6) 0;border-top:1px solid var(--color-divider)">
+          <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:12px">To book — call or text</div>
+          <a href="tel:+14353480415" style="font-family:var(--font-heading);font-size:26px;font-weight:400;font-variant-numeric:tabular-nums;color:var(--color-text);border-bottom:1px solid var(--color-accent-300)" style-hover="color:var(--color-accent-700);border-color:var(--color-accent)">(435) 348-0415</a>
+        </div>
+        <div data-rise style="padding:var(--space-6) 0;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider)">
+          <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:14px">Hours</div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:9px var(--space-6);font-size:14px;font-variant-numeric:tabular-nums;color:var(--color-neutral-800)">
+            <span>Tuesday – Friday</span><span style="text-align:right">9:00 — 6:00</span>
+            <span>Saturday</span><span style="text-align:right">8:00 — 4:00</span>
+            <span>Sunday &amp; Monday</span><span style="text-align:right;color:var(--color-neutral-600)">Closed</span>
+          </div>
+        </div>
+        <div data-rise style="display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(28px,4vh,44px)">
+          <a class="btn btn-primary" href="{{ bookUrl }}" style="font-family:var(--font-body);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--color-accent-700);padding:17px 34px">Call to book</a>
+          <a class="btn btn-secondary" href="sms:+14353480415" style="font-family:var(--font-body);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--color-neutral-700);padding:17px 34px">Send a text</a>
+        </div>
+      </div>
+      <div data-rise data-parallax-wrap style="overflow:hidden">
+        <div class="plate" style="overflow:hidden"><img data-parallax src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=1200&amp;q=80" alt="Inside the studio" style="width:100%;height:clamp(340px,58vh,620px);object-fit:cover;display:block;will-change:transform;scale:1.14"></div>
+        <p style="margin:14px 0 0;font-family:var(--font-body);font-style:italic;font-size:12.5px;color:var(--color-neutral-600)">Parking is free in the Watters Creek garage; take the stairs beside the courtyard to Suite 200.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#171615;color:rgba(243,242,242,.66);padding:clamp(48px,7vh,80px) clamp(20px,4vw,56px) clamp(32px,4vh,48px)">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:var(--space-8);align-items:flex-end;justify-content:space-between;padding-bottom:var(--space-6);border-bottom:1px solid rgba(243,242,242,.16)">
+    <div>
+      <div style="font-family:var(--font-heading);font-weight:300;font-size:clamp(30px,4vw,54px);line-height:1;color:#f6f4f1">Antoinette Cierra</div>
+      <div style="font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;margin-top:14px;color:#a06f24">Hair · Allen, Texas · Est. 2011</div>
+    </div>
+    <div style="display:flex;gap:clamp(16px,2.4vw,34px);font-size:11px;letter-spacing:.2em;text-transform:uppercase">
+      <a href="#services" style="color:rgba(243,242,242,.66)" style-hover="color:#e1ad66">Services</a>
+      <a href="#portfolio" style="color:rgba(243,242,242,.66)" style-hover="color:#e1ad66">Portfolio</a>
+      <a href="#policies" style="color:rgba(243,242,242,.66)" style-hover="color:#e1ad66">Policies</a>
+      <a href="{{ igUrl }}" target="_blank" rel="noopener" style="color:rgba(243,242,242,.66)" style-hover="color:#e1ad66">Instagram</a>
+    </div>
+  </div>
+  <div style="max-width:1280px;margin:var(--space-4) auto 0;display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:space-between;font-size:11px;color:rgba(243,242,242,.42)">
+    <span>905 Watters Creek Blvd, Suite 200, Allen, TX 75013 · (435) 348-0415</span>
+    <span>© 2026 Hair by Antoinette Cierra. All rights reserved.</span>
+  </div>
+</footer>
+
+<div style="position:fixed;right:clamp(16px,2.4vw,32px);bottom:clamp(16px,2.4vw,32px);z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+  <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="width:264px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);overflow:hidden">
+      <div style="padding:var(--space-4) var(--space-6);border-bottom:1px solid var(--color-divider)">
+        <div style="font-family:var(--font-body);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--color-accent-700)">One chair, one guest</div>
+        <div style="font-family:var(--font-heading);font-weight:400;font-size:20px;line-height:1.3;margin-top:7px">Call or text to book</div>
+      </div>
+      <a href="tel:+14353480415" style="display:flex;align-items:center;gap:13px;padding:var(--space-4) var(--space-6);border-bottom:1px solid var(--color-divider);color:var(--color-text)" style-hover="background:var(--color-accent-100)">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <div>
+          <div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums;line-height:1.2">(435) 348-0415</div>
+          <div style="font-size:11px;color:var(--color-neutral-600);margin-top:3px">Call the studio</div>
+        </div>
+      </a>
+      <a href="sms:+14353480415" style="display:flex;align-items:center;gap:13px;padding:var(--space-4) var(--space-6);color:var(--color-text)" style-hover="background:var(--color-accent-100)">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <div>
+          <div style="font-family:var(--font-heading);font-size:19px;line-height:1.2">Send a text</div>
+          <div style="font-size:11px;color:var(--color-neutral-600);margin-top:3px">Replies between clients</div>
+        </div>
+      </a>
+    </div>
+  </sc-if>
+  <button type="button" onClick="{{ toggleChat }}" aria-label="Call or text to book" style="display:flex;align-items:center;gap:10px;background:var(--color-bg);color:var(--color-accent-700);border:1px solid var(--color-accent);border-radius:999px;padding:13px 22px;cursor:pointer;box-shadow:var(--shadow-md);font-family:var(--font-body);font-size:11px;letter-spacing:.24em;text-transform:uppercase" style-hover="background:var(--color-accent-100);border-color:var(--color-accent-600)">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    <span>{{ chatLabel }}</span>
+  </button>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bookingUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;tel:+14353480415&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Links&quot;},&quot;instagramHandle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;hair_by_antoinette_cierra&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Links&quot;},&quot;heroVideoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://videos.pexels.com/video-files/7876273/7876273-uhd_1440_2732_25fps.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Cinematic&quot;,&quot;Restrained&quot;],&quot;default&quot;:&quot;Cinematic&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { chatOpen: false };
+
+  renderVals() {
+    const handle = (this.props.instagramHandle ?? "hair_by_antoinette_cierra").replace(/^@/, "");
+    return {
+      chatOpen: this.state.chatOpen,
+      chatLabel: this.state.chatOpen ? "Close" : "Call or text",
+      toggleChat: () => this.setState((s) => ({ chatOpen: !s.chatOpen })),
+      rootRef: (el) => { this.root = el; },
+      bookUrl: this.props.bookingUrl ?? "tel:+14353480415",
+      videoUrl: this.props.heroVideoUrl
+        ?? (window.__resources && window.__resources.herovideo)
+        ?? "https://videos.pexels.com/video-files/7876273/7876273-uhd_1440_2732_25fps.mp4",
+      igUrl: "https://www.instagram.com/" + handle + "/",
+      igHandle: "@" + handle
+    };
+  }
+
+  componentDidMount() { this.boot(); this.keepVideoRolling(); }
+
+  // Belt and braces: enforce the loop/mute/autoplay properties directly and
+  // restart on 'ended' or on tab return, so the hero never freezes on a still.
+  keepVideoRolling(tries) {
+    tries = tries || 0;
+    const v = this.root && this.root.querySelector("[data-hero-video]");
+    if (!v) { if (tries < 60) this._vt = setTimeout(() => this.keepVideoRolling(tries + 1), 120); return; }
+    v.loop = true; v.muted = true; v.defaultMuted = true; v.playsInline = true;
+    const play = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+    v.addEventListener("ended", () => { v.currentTime = 0; play(); });
+    v.addEventListener("loadeddata", play);
+    this._onVis = () => { if (document.visibilityState === "visible" && v.paused) play(); };
+    document.addEventListener("visibilitychange", this._onVis);
+    this._vpoll = setInterval(() => { if (v.paused && v.readyState > 2) play(); }, 4000);
+    play();
+  }
+
+  componentWillUnmount() {
+    if (this._sts) this._sts.forEach(t => { try { t.kill(); } catch (e) {} });
+    if (this._raf) clearTimeout(this._raf);
+    if (this._introSafety) clearTimeout(this._introSafety);
+    if (this._sweep) clearTimeout(this._sweep);
+    if (this._vt) clearTimeout(this._vt);
+    if (this._vpoll) clearInterval(this._vpoll);
+    if (this._onVis) document.removeEventListener("visibilitychange", this._onVis);
+    this.revealAll();
+  }
+
+  // Hard fallback: the natural, visible state. Called whenever the animation
+  // layer cannot be trusted to run — no GSAP, hidden tab, stalled ticker,
+  // unmount — so no content is ever left hidden by a tween that never fires.
+  revealAll() {
+    if (!this.root) return;
+    this.root.removeAttribute("data-anim");
+    const sel = "[data-rise],[data-svc],[data-mline],[data-hero-line],[data-hero-sub],[data-hero-copy] a";
+    Array.from(this.root.querySelectorAll(sel)).forEach((el) => {
+      ["opacity", "transform", "translate", "scale", "rotate"].forEach((p) => el.style.removeProperty(p));
+    });
+  }
+
+  boot(tries) {
+    tries = tries || 0;
+    const retry = () => { this._raf = setTimeout(() => this.boot(tries + 1), 90); };
+    if (this._booted) return;
+    if (!this.root || !window.gsap || !window.ScrollTrigger) {
+      if (tries < 70) retry(); else this.revealAll();
+      return;
+    }
+    if (document.visibilityState === "hidden") { this.revealAll(); return; }
+    // Confirm the rAF ticker is actually advancing before hiding anything.
+    if (window.gsap.ticker.frame === 0) {
+      if (tries < 40) retry(); else this.revealAll();
+      return;
+    }
+    this._booted = true;
+    this.root.setAttribute("data-anim", "ready");
+    const gsap = window.gsap, ST = window.ScrollTrigger;
+    gsap.registerPlugin(ST);
+    this._sts = [];
+    const root = this.root;
+    const q = (s) => Array.from(root.querySelectorAll(s));
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const cinematic = (this.props.motion ?? "Cinematic") === "Cinematic" && !reduce;
+
+    if (reduce) { this.revealAll(); return; }
+
+    // — Hero: scrubbed pull-back and copy drift
+    const media = root.querySelector("[data-hero-media]");
+    const hero = root.querySelector("[data-hero]");
+    if (media && hero) {
+      gsap.set(media, { scale: 1.16, yPercent: -2 });
+      this._sts.push(gsap.to(media, {
+        scale: 1, yPercent: 5, ease: "none",
+        scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 0.6 }
+      }).scrollTrigger);
+    }
+    // — Hero intro. The headline must never be left hidden by a tween that
+    //   never runs (background tab, hot reload, unmount), so it is only put
+    //   into its start state when the ticker is actually live, every tween is
+    //   tracked, and a hard timer restores the natural state regardless.
+    const heroLines = q("[data-hero-line]");
+    const heroRest = Array.from(root.querySelectorAll("[data-hero-sub], [data-hero-copy] a"));
+    this._intro = heroLines.concat(heroRest);
+    const revealIntro = () => { try { gsap.set(this._intro, { clearProps: "opacity,transform" }); } catch (e) {} };
+    this._revealIntro = revealIntro;
+    if (document.visibilityState === "hidden") {
+      revealIntro();
+    } else {
+      this._sts.push(gsap.from(heroLines, { yPercent: 108, opacity: 0, duration: 1.5, ease: "expo.out", stagger: 0.13, delay: 0.15, clearProps: "opacity,transform" }));
+      this._sts.push(gsap.from(heroRest, { y: 26, opacity: 0, duration: 1.1, ease: "power3.out", stagger: 0.08, delay: 0.75, clearProps: "opacity,transform" }));
+      this._introSafety = setTimeout(revealIntro, 3600);
+    }
+
+    const heroVideo = root.querySelector("[data-hero-video]");
+    if (heroVideo) heroVideo.addEventListener("error", () => { heroVideo.style.display = "none"; }, { once: true });
+    const copy = root.querySelector("[data-hero-copy]");
+    if (copy) gsap.to(copy, { y: -70, opacity: 0.15, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 0.5 } });
+
+    // — Nav: transparent over the hero, paper below it
+    const nav = root.querySelector("[data-nav]");
+    if (nav && hero) {
+      const dark = () => { nav.style.background = "transparent"; nav.style.borderBottomColor = "transparent"; nav.style.color = "#f3f2f2"; };
+      const light = () => { nav.style.background = "rgba(243,242,242,.94)"; nav.style.backdropFilter = "blur(9px)"; nav.style.borderBottomColor = "rgba(32,31,29,.16)"; nav.style.color = "#201f1d"; };
+      dark();
+      this._sts.push(ST.create({ trigger: hero, start: "bottom top+=80", onEnter: light, onLeaveBack: dark }));
+    }
+
+    // — Manifesto: pinned, line by line
+    const mSec = root.querySelector("[data-manifesto]");
+    const mPin = root.querySelector("[data-manifesto-pin]");
+    const mLines = q("[data-mline]");
+    if (mSec && mPin && mLines.length) {
+      gsap.set(mLines, { opacity: 0.1, y: 34 });
+      if (cinematic) {
+        const tl = gsap.timeline({ scrollTrigger: { trigger: mSec, start: "top top", end: "+=" + Math.round(window.innerHeight * 1.6), scrub: 0.7, pin: mPin, pinSpacing: true, anticipatePin: 1 } });
+        mLines.forEach((l) => tl.to(l, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, ">-0.35"));
+        tl.to({}, { duration: 0.8 });
+        this._sts.push(tl.scrollTrigger);
+      } else {
+        this._sts.push(gsap.to(mLines, { opacity: 1, y: 0, stagger: 0.14, ease: "power2.out", duration: 0.9, scrollTrigger: { trigger: mSec, start: "top 62%" } }).scrollTrigger);
+      }
+    }
+
+    // — Horizontal portfolio
+    const gSec = root.querySelector("[data-gallery]");
+    const gPin = root.querySelector("[data-gallery-pin]");
+    const gTrack = root.querySelector("[data-gallery-track]");
+    if (gSec && gPin && gTrack) {
+      const setup = () => {
+        const dist = gTrack.scrollWidth - window.innerWidth + 56;
+        if (dist <= 40 || window.innerWidth < 760) { gTrack.style.overflowX = "auto"; return; }
+        this._sts.push(gsap.to(gTrack, {
+          x: -dist, ease: "none",
+          scrollTrigger: { trigger: gSec, start: "top top", end: "+=" + Math.round(dist * 1.05), scrub: 0.65, pin: gPin, pinSpacing: true, anticipatePin: 1, invalidateOnRefresh: true }
+        }).scrollTrigger);
+      };
+      setup();
+    }
+
+    // — Section reveals
+    q("[data-rise]").forEach((el) => {
+      this._sts.push(gsap.fromTo(el, { opacity: 0, y: 40 }, {
+        opacity: 1, y: 0, duration: 1.05, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 88%", once: true }
+      }).scrollTrigger);
+    });
+
+    // — Price rows, staggered by group
+    q("[data-svc]").forEach((el, i) => {
+      this._sts.push(gsap.fromTo(el, { opacity: 0, y: 22 }, {
+        opacity: 1, y: 0, duration: 0.75, ease: "power2.out", delay: (i % 6) * 0.05,
+        scrollTrigger: { trigger: el, start: "top 92%", once: true }
+      }).scrollTrigger);
+    });
+
+    // — Plate parallax
+    q("[data-parallax]").forEach((img) => {
+      const wrap = img.closest("[data-parallax-wrap]") || img.parentElement;
+      this._sts.push(gsap.fromTo(img, { yPercent: -6 }, {
+        yPercent: 6, ease: "none",
+        scrollTrigger: { trigger: wrap, start: "top bottom", end: "bottom top", scrub: 0.6 }
+      }).scrollTrigger);
+    });
+
+    const imgs = Array.from(root.querySelectorAll("img"));
+    let left = imgs.length;
+    const done = () => { if (--left <= 0) ST.refresh(); };
+    imgs.forEach((im) => { if (im.complete) done(); else { im.addEventListener("load", done); im.addEventListener("error", done); } });
+    setTimeout(() => ST.refresh(), 900);
+
+    // Sweep: anything already on screen but still hidden after five seconds
+    // had a trigger that never fired — show it rather than lose the content.
+    this._sweep = setTimeout(() => {
+      Array.from(root.querySelectorAll("[data-rise],[data-svc],[data-mline]")).forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight && parseFloat(getComputedStyle(el).opacity) < 0.9) {
+          gsap.set(el, { opacity: 1, y: 0 });
+        }
+      });
+    }, 5000);
+  }
+}
+
+</script>
+</body>
+</html>
