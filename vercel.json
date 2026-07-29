@@ -1,6 +1,0 @@
-{
-  "buildCommand": "cd website-redesign && npm run build",
-  "devCommand": "cd website-redesign && npm run dev",
-  "installCommand": "npm install && cd website-redesign && npm install",
-  "framework": "nextjs"
-}
