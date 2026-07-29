@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+dist/
+.DS_Store
+*.swp
+*.swo
+logs/
+.env.local
+.env.example
+credentials.json
+EOF && git add .gitignore server.js package.json package-lock.json kilo.jsonc skills-lock.json website-redesign/app/ website-redesign/public/ website-redesign/next.config.js website-redesign/support.js && git commit -m "feat: mobile responsive redesign with hamburger nav and responsive image in Meet Antoinette section"

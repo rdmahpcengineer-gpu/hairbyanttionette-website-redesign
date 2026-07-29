@@ -1,0 +1,19 @@
+{
+  "name": "antionnte",
+  "version": "1.0.0",
+  "description": "Hair by Antoinette Cierra - Vapi AI Assistant for appointment booking and scheduling",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.21.0",
+    "google-auth-library": "^9.4.1",
+    "googleapis": "^133.0.0"
+  }
+}
